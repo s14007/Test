@@ -16,19 +16,22 @@ public class Main {
         });
         comm.start();
 
-        while (true) {
+
             try {
-                String input = scan.next();
-                comm.send(name + ": " + input);
-                if (input.equals("q")) {
-                    System.out.println("終了");
-                    comm.finish();
-                    System.exit(0);
-                    break;
+                System.out.println("入力してください。");
+                System.out.println("qで終了します。");
+                while (true) {
+                    String input = scan.next();
+                    comm.send(name + ": " + input);
+                    if (input.equals("q")) {
+                        System.out.println("終了");
+                        comm.finish();
+                        System.exit(0);
+                        break;
+                    }
                 }
             } catch (IOException var3) {
                 var3.printStackTrace();
             }
-        }
     }
 }
